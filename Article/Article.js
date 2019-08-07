@@ -161,33 +161,3 @@ submitButton.addEventListener("click", event=>{
     event.preventDefault();
     addNewArticle();
 });
-
-let form = document.querySelector('#create-article');
-let formTitle = document.querySelector('.form-title');
-let formDate = document.querySelector('.form-date');
-
-let formp1 = document.querySelector('.form-p1');
-let formp2 = document.querySelector('.form-p2');
-let formp3 = document.querySelector('.form-p3');
-
-function addNewArticle(){
-    if(formTitle.value === "" || formDate.value === "" || formp1.value === ""){
-        alert('You must fill out at least the first 3 fields');
-    } else{
-
-
-
-        let formObj = {
-            title: formTitle.value,
-            date: formDate.value,
-            firstParagraph: formp1.value,
-            secondParagraph: formp2.value,
-            thirdParagraph: formp3.value
-        };
-
-        let myNewArticle = componentCreator(formObj);
-        pageArticleDiv.appendChild(myNewArticle);
-
-        form.reset();
-    }
-}
