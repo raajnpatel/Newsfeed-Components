@@ -113,4 +113,30 @@ const data = [
 
 */
 
+function componentCreator(obj) {
+  let article = document.createElement('div');
+  article.classList.add('article');
 
+  let h2 = document.createElement('h2');
+  h2.innerText = obj.title;
+
+  let date = document.createElement('p');
+  date.classList.add('date');
+  date.innerText = obj.date;
+
+  let pOne = document.createElement('p');
+  pOne.innerText = obj.firstParagraph;
+
+  let pTwo = document.createElement('p');
+  pTwo.innerText = obj.secondParagraph;
+
+  let pThree = document.createElement('p');
+  pThree.innerText = obj.thirdParagraph;
+
+  let spanItem = document.createElement('span');
+  spanItem.classList.add('expandButton');
+  spanItem.innerText = 'Toggle';
+  spanItem.add('click', (event) => {
+    article.classList.toggle('article-open');
+  });
+}
