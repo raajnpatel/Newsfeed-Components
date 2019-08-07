@@ -113,9 +113,12 @@ const data = [
 
 */
 
+
 function componentCreator(obj) {
     let article = document.createElement("div");
     article.classList.add("article");
+    article.style.padding = "5px 20px 45px";
+    let articleOpen = document
 
     let h2 = document.createElement("h2");
     h2.innerText = obj.title;
@@ -133,20 +136,27 @@ function componentCreator(obj) {
     let p3 = document.createElement("p");
     p3.innerText = obj.thirdParagraph;
 
-    let spanItem = document.createElement("span");
-    spanItem.classList.add("expandButton");
-    spanItem.innerText = "Toggle";
-    spanItem.addEventListener("click", event => {
-        article.classList.toggle("article-open");
-        article.style.overflow = "scroll";
+    let button = document.createElement("img");
+    button.addEventListener('click', (event) => {
+       button.style.rotate = "180deg";
+    });
+    button.classList.add("expandButton");
+    button.style.position = "inherit";
+    button.style.left = "0";
+
+    button.setAttribute("src", "./arrowD.png");
+    button.setAttribute("height", "20");
+    button.setAttribute("width", "10");
+    button.addEventListener("click", event => {
+        article.classList.toggle('article-open');
     });
 
+    article.appendChild(button);
     article.appendChild(h2);
     article.appendChild(date);
     article.appendChild(p1);
     article.appendChild(p2);
     article.appendChild(p3);
-    article.appendChild(spanItem);
 
     return article;
 }

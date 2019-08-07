@@ -55,7 +55,8 @@ let myMenu = menuComponent(menuItems);
 let menuImg = document.querySelector(".menu-button");
 menuImg.addEventListener("click", (event) => {
   myMenu.classList.toggle("menu--open");
-  TweenMax.to(myMenu, 2, {opacity:80, left:50});
+  TweenMax.set(myMenu, {left:-350});
+  TweenMax.to(myMenu, 1, {opacity:80, left: 0});
 });
 
 let headerDiv = document.querySelector(".header");
