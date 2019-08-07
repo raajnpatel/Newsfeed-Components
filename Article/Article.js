@@ -155,9 +155,3 @@ const pageArticleDiv = document.querySelector(".articles");
 let allArticles = data.forEach((item, index, array) => {
     pageArticleDiv.appendChild(componentCreator(item));
 });
-
-const submitButton = document.querySelector('.btn-submit');
-submitButton.addEventListener("click", event=>{
-    event.preventDefault();
-    addNewArticle();
-});
