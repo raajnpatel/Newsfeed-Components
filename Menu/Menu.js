@@ -40,7 +40,7 @@ function menuComponent(items) {
 
   let newList = document.createElement("ul");
 
-  items.forEach(function(item, index, array) {
+  items.forEach(function(item) {
     let listItem = document.createElement("li");
     listItem.innerText = item;
     newList.appendChild(listItem);
@@ -55,6 +55,7 @@ let myMenu = menuComponent(menuItems);
 let menuImg = document.querySelector(".menu-button");
 menuImg.addEventListener("click", (event) => {
   myMenu.classList.toggle("menu--open");
+  TweenMax.to(myMenu, 2, {opacity:80, left:50});
 });
 
 let headerDiv = document.querySelector(".header");

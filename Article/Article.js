@@ -138,6 +138,7 @@ function componentCreator(obj) {
     spanItem.innerText = "Toggle";
     spanItem.addEventListener("click", event => {
         article.classList.toggle("article-open");
+        article.style.overflow = "scroll";
     });
 
     article.appendChild(h2);
