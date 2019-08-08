@@ -137,9 +137,15 @@ function componentCreator(obj) {
     p3.innerText = obj.thirdParagraph;
 
     let button = document.createElement("img");
+    let step = true;
     button.addEventListener('click', (event) => {
-       button.style.rotate = "180deg";
-    });
+        step = !step;
+        if ((step === false)) {
+            button.style.transform = "rotate(180deg)";
+        } else {
+            button.style.transform = "initial";
+        }
+        });
     button.classList.add("expandButton");
     button.style.position = "inherit";
     button.style.left = "0";
@@ -147,8 +153,15 @@ function componentCreator(obj) {
     button.setAttribute("src", "./arrowD.png");
     button.setAttribute("height", "20");
     button.setAttribute("width", "10");
+    let steps = true;
     button.addEventListener("click", event => {
+        // steps = !steps;
         article.classList.toggle('article-open');
+        // if ((steps === false)) {
+        //     article.style.overflow = 'scroll';
+        // } else {
+        //     article.style.overflow = 'initial';
+        // }
     });
 
     article.appendChild(button);

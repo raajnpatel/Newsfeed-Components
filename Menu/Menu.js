@@ -52,12 +52,19 @@ function menuComponent(items) {
 
 let myMenu = menuComponent(menuItems);
 
+
 let menuImg = document.querySelector(".menu-button");
+let step = true;
 menuImg.addEventListener("click", (event) => {
-  myMenu.classList.toggle("menu--open");
-  TweenMax.set(myMenu, {left:-350});
-  TweenMax.to(myMenu, 1, {opacity:80, left: 0});
-});
+  step = !step;
+  if ((step===false)) {
+    myMenu.classList.toggle("menu--open");
+    TweenMax.set(myMenu, {left: -350});
+    TweenMax.to(myMenu, 1, {opacity: 80, left: 0});
+  } else {
+    TweenMax.to(myMenu, 1, {opacity: 80, left: -350});
+  }
+  });
 
 let headerDiv = document.querySelector(".header");
 headerDiv.prepend(myMenu);

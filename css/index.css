@@ -76,6 +76,9 @@
 .article-open {
   height: 400px;
 }
+.article-close {
+  height: 70px;
+}
 .menu-button {
   position: absolute;
   left: 20px;
