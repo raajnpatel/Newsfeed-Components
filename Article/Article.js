@@ -112,3 +112,70 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+
+function componentCreator(obj) {
+    let article = document.createElement("div");
+    article.classList.add("article");
+    article.style.padding = "5px 20px 45px";
+    let articleOpen = document
+
+    let h2 = document.createElement("h2");
+    h2.innerText = obj.title;
+
+    let date = document.createElement("p");
+    date.classList.add("date");
+    date.innerText = obj.date;
+
+    let p1 = document.createElement("p");
+    p1.innerText = obj.firstParagraph;
+
+    let p2 = document.createElement("p");
+    p2.innerText = obj.secondParagraph;
+
+    let p3 = document.createElement("p");
+    p3.innerText = obj.thirdParagraph;
+
+    let button = document.createElement("img");
+    let step = true;
+    button.addEventListener('click', (event) => {
+        step = !step;
+        if ((step === false)) {
+            button.style.transform = "rotate(180deg)";
+        } else {
+            button.style.transform = "initial";
+        }
+        });
+    button.classList.add("expandButton");
+    button.style.position = "inherit";
+    button.style.left = "0";
+
+    button.setAttribute("src", "./arrowD.png");
+    button.setAttribute("height", "20");
+    button.setAttribute("width", "10");
+    let steps = true;
+    button.addEventListener("click", event => {
+        // steps = !steps;
+        article.classList.toggle('article-open');
+        // if ((steps === false)) {
+        //     article.style.overflow = 'scroll';
+        // } else {
+        //     article.style.overflow = 'initial';
+        // }
+    });
+
+    article.appendChild(button);
+    article.appendChild(h2);
+    article.appendChild(date);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    article.appendChild(p3);
+
+    return article;
+}
+
+const pageArticleDiv = document.querySelector(".articles");
+
+let allArticles = data.forEach((item, index, array) => {
+    pageArticleDiv.appendChild(componentCreator(item));
+});
